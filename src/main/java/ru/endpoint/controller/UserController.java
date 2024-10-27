@@ -1,7 +1,7 @@
 package ru.endpoint.controller;
 
-import ru.endpoint.entity.Customer;
-import ru.endpoint.repository.CustomerRepository;
+import ru.endpoint.entity.User;
+import ru.endpoint.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,27 +15,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class CustomerController {
+public class UserController {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private UserRepository userRepository;
 
-    @GetMapping("/fillCustomersTableFromFile")
-    public String fillCustomersTableFromFile() {
+    @GetMapping("/fillUsersTableFromFile")
+    public String fillUsersTableFromFile() {
         String csvFilePath = "src/main/resources/TestCSV.csv";
-        List<Customer> customers = new ArrayList<>();
+        List<User> users = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(";");
-                Customer customer = new Customer();
-                customer.setName(values[0]);
-                customer.setAge(Integer.parseInt(values[1]));
-                customer.setCity(values[2]);
-                customers.add(customer);
+                User user = new User();
+                user.setName(values[0]);
+                user.setAge(Integer.parseInt(values[1]));
+                user.setCity(values[2]);
+                users.add(user);
             }
-            customerRepository.saveAll(customers);
+            userRepository.saveAll(users);
         } catch (IOException e) {
             return "Error reading CSV file: " + e.getMessage();
         }
@@ -43,9 +43,9 @@ public class CustomerController {
         return "CSV data imported successfully";
     }
 
-    @PostMapping("/fillCustomersTableFromJSON")
-    public String fillCustomersTableFromJSON(@RequestBody List<Customer> customers) {
-        customerRepository.saveAll(customers);
+    @PostMapping("/fillUsersTableFromJSON")
+    public String fillUsersTableFromJSON(@RequestBody List<User> users) {
+        userRepository.saveAll(users);
         return "JSON data imported successfully";
     }
 }

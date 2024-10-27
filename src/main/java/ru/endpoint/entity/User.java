@@ -10,8 +10,8 @@ import jakarta.validation.constraints.Size;
 
 
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Customer {
     @Size(min = 1, max = 100)
     private String city;
 
-    public Customer() {
+    public User() {
     }
 
     public String getName() {
@@ -49,7 +49,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +

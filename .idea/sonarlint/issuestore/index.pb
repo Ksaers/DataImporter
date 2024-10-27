@@ -13,3 +13,7 @@ l
 <src/main/java/ru/endpoint/controller/CustomerController.java,4\1\41c261d2f46464070f91ff2da783078c5d91bad0
 l
 <src/main/java/ru/endpoint/repository/CustomerRepository.java,2\e\2e86f3a42316123da2a24e7ccf6af191a061268a
+h
+8src/main/java/ru/endpoint/controller/UserController.java,4\0\40717ec3c171c16fd936ed1e6c005e086abb0f41
+Z
+*src/main/java/ru/endpoint/entity/User.java,3\9\3934fb48083b0000ac3b56179ec71ee7fefc5faf
