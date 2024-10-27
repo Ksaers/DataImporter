@@ -12,7 +12,7 @@ http://localhost:8080/fillUsersTableFromFile
 ```
 Для тестирования парсинга JSON, необходимо отправить POST запрос
 ```
-http://localhost:8080/fillCustomersTableFromFile
+http://localhost:8080/fillUsersTableFromJSON
 ```
 И добавить в тело запроса
 ```
